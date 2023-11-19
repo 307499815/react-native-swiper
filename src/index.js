@@ -533,9 +533,10 @@ export default class extends Component {
     let y = 0
     if (state.dir === 'x') x = diff * state.width
     if (state.dir === 'y') y = diff * state.height
-
+    x = Math.min(x, Math.floor((this.state.total-1) * this.state.width));
+    
     this.scrollView && this.scrollView.scrollTo({ x, y, animated })
-
+    
     // update scroll state
     this.internals.isScrolling = true
     this.setState({
@@ -575,7 +576,8 @@ export default class extends Component {
     let y = 0
     if (state.dir === 'x') x = diff * state.width
     if (state.dir === 'y') y = diff * state.height
-
+    x = Math.min(x, Math.floor((this.state.total-1) * this.state.width));
+    
     this.scrollView && this.scrollView.scrollTo({ x, y, animated })
 
     // update scroll state
